@@ -6,4 +6,5 @@ urlpatterns = [
     path('login', v.LoginAPIView.as_view()),
     path('logout', v.LogoutAPIView.as_view()),
     path('profile/', v.ProfileAPIView.as_view()),
+    path('all/', v.UserListAPIView.as_view()),
 ]

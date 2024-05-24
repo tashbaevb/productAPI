@@ -1,13 +1,13 @@
 from django.db import models
-from account.models import User
+
+from product.models import Product
 
 
 class Order(models.Model):
-    owner = models.ForeignKey(User, on_delete=models.CASCADE, related_name="orders")
     user_address = models.CharField(max_length=200)
     user_name = models.CharField(max_length=200)
-    title = models.CharField(max_length=200)
-    price = models.FloatField()
+    product = models.ForeignKey(Product, on_delete=models.CASCADE, related_name='orders')
+    counter = models.IntegerField()
 
     def __str__(self):
         return self.user_name

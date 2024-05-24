@@ -80,3 +80,8 @@ class ProfileAPIView(APIView):
     def get(self, request):
         user = request.user
         return Response({'username': user.username, 'email': user.email})
+
+
+class UserListAPIView(generics.ListAPIView):
+    queryset = m.User.objects.all()
+    serializer_class = s.UserSerializer

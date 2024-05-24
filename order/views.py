@@ -1,4 +1,4 @@
-from rest_framework import generics, permissions
+from rest_framework import generics
 from . import models as m, serializers as s
 
 
@@ -9,11 +9,7 @@ class OrderListAPIView(generics.ListAPIView):
 
 class OrderCreateAPIView(generics.CreateAPIView):
     queryset = m.Order.objects.all()
-    serializer_class = s.OrderSerializer
-    permission_classes = [permissions.IsAuthenticated]
-
-    def perform_create(self, serializer):
-        serializer.save(owner=self.request.user)
+    serializer_class = s.OrderCreateSerializer
 
 
 class OrderDetailAPIView(generics.RetrieveAPIView):
