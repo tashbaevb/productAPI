@@ -5,4 +5,5 @@ from .models import Order
 class OrderSerializer(serializers.ModelSerializer):
     class Meta:
         model = Order
-        fields = ['id', 'address', 'name', 'price']  # Поле 'owner' исключено
+        fields = ['id', 'user_address', 'user_name', 'owner']
+        read_only_fields = ['owner']
